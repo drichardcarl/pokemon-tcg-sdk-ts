@@ -1,6 +1,6 @@
 {
   "name": "@d.richardcarl/pokemon-tcg-sdk-ts",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "Typescript SDK for the PokemonTCG API (https://pokemontcg.io)",
   "main": "dist/index.js",
   "module": "dist/index.js",
