@@ -6,6 +6,7 @@ export * from './interfaces/ICardImage';
 export * from './interfaces/ILegality';
 export * from './interfaces/IParameter';
 export * from './interfaces/IPrice';
+export * from './interfaces/IProduct';
 export * from './interfaces/IResistance';
 export * from './interfaces/ISet';
 export * from './interfaces/ISetImage';
