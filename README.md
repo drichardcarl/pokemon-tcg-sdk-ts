@@ -27,8 +27,12 @@ This is the TypeScript SDK for the [Pokémon Trading Card Game API](https://docs
       - [getRarities()](#getrarities)
     - [Set Methods](#set-methods)
       - [findSetByID()](#findsetbyid)
-      - [findSetByQueries()](#findsetbyqueries)
+      - [findSetsByQueries()](#findsetsbyqueries)
       - [getAllSets()](#getallsets)
+    - [Product Methods](#product-methods)
+      - [findProductByID()](#findproductbyid)
+      - [findProductsByQueries()](#findproductsbyqueries)
+      - [getAllProducts()](#getallproducts)
   - [Contributing](#contributing)
     - [Setup](#setup)
 
@@ -38,18 +42,18 @@ This is the TypeScript SDK for the [Pokémon Trading Card Game API](https://docs
 
 **npm**
 
-    npm install @pokelib/pokemon-tcg-sdk-typescript
+    npm install @d.richardcarl/pokemon-tcg-sdk-ts
 
 **yarn**
 
-    yarn add @pokelib/pokemon-tcg-sdk-typescript
+    yarn add @d.richardcarl/pokemon-tcg-sdk-ts
 
 ## Configuration
 
 The SDK works out of the box! Simply import the SDK, and you're ready to go:
 
 ```typescript
-import { PokemonTCG } from '@pokelib/pokemon-tcg-sdk-typescript';
+import { PokemonTCG } from '@d.richardcarl/pokemon-tcg-sdk-ts';
 
 PokemonTCG.findCardByID('xy7-54').then((card: PokemonTCG.Card) => {
   console.log(card.name); // Gardevoir
@@ -73,7 +77,7 @@ All function calls return generic promises like `Promise<T>` or `Promise<T[]>`
 Returns a single Pokémon card given an ID.
 
 ```typescript
-import { PokemonTCG } from '@pokelib/pokemon-tcg-sdk-typescript';
+import { PokemonTCG } from '@d.richardcarl/pokemon-tcg-sdk-ts';
 
 PokemonTCG.findCardByID('xy7-54').then((card: PokemonTCG.ICard) => {
   console.log(card.name); // Gardevoir
@@ -85,7 +89,7 @@ PokemonTCG.findCardByID('xy7-54').then((card: PokemonTCG.ICard) => {
 Returns an array of cards filtered through a search query.
 
 ```typescript
-import { PokemonTCG } from '@pokelib/pokemon-tcg-sdk-typescript';
+import { PokemonTCG } from '@d.richardcarl/pokemon-tcg-sdk-ts';
 
 const params: PokemonTCG.IParameter = { q: 'id:xy7-54' };
 
@@ -99,7 +103,7 @@ PokemonTCG.findCardsByQueries(params).then((cards: PokemonTCG.ICard[]) => {
 Returns all Pokémon cards available through recursive pagination.
 
 ```typescript
-import { PokemonTCG } from '@pokelib/pokemon-tcg-sdk-typescript';
+import { PokemonTCG } from '@d.richardcarl/pokemon-tcg-sdk-ts';
 
 PokemonTCG.getAllCards();
 ```
@@ -109,7 +113,7 @@ PokemonTCG.getAllCards();
 Returns all Energy Types
 
 ```typescript
-import { PokemonTCG } from '@pokelib/pokemon-tcg-sdk-typescript';
+import { PokemonTCG } from '@d.richardcarl/pokemon-tcg-sdk-ts';
 
 PokemonTCG.getTypes();
 ```
@@ -119,7 +123,7 @@ PokemonTCG.getTypes();
 Returns all Super Types
 
 ```typescript
-import { PokemonTCG } from '@pokelib/pokemon-tcg-sdk-typescript';
+import { PokemonTCG } from '@d.richardcarl/pokemon-tcg-sdk-ts';
 
 PokemonTCG.getSupertypes();
 ```
@@ -129,7 +133,7 @@ PokemonTCG.getSupertypes();
 Returns all Sub Types
 
 ```typescript
-import { PokemonTCG } from '@pokelib/pokemon-tcg-sdk-typescript';
+import { PokemonTCG } from '@d.richardcarl/pokemon-tcg-sdk-ts';
 
 PokemonTCG.getSubtypes();
 ```
@@ -139,7 +143,7 @@ PokemonTCG.getSubtypes();
 Returns all card Rarities
 
 ```typescript
-import { PokemonTCG } from '@pokelib/pokemon-tcg-sdk-typescript';
+import { PokemonTCG } from '@d.richardcarl/pokemon-tcg-sdk-ts';
 
 PokemonTCG.getRarities();
 ```
@@ -151,7 +155,7 @@ PokemonTCG.getRarities();
 Returns a single Pokémon card given an ID.
 
 ```typescript
-import { PokemonTCG } from '@pokelib/pokemon-tcg-sdk-typescript';
+import { PokemonTCG } from '@d.richardcarl/pokemon-tcg-sdk-ts';
 
 PokemonTCG.findSetByID('base1').then((set: PokemonTCG.ISet) => {
   console.log(set.name); // Base
@@ -163,7 +167,7 @@ PokemonTCG.findSetByID('base1').then((set: PokemonTCG.ISet) => {
 Returns an array of cards filtered through a search query.
 
 ```typescript
-import { PokemonTCG } from '@pokelib/pokemon-tcg-sdk-typescript';
+import { PokemonTCG } from '@d.richardcarl/pokemon-tcg-sdk-ts';
 
 const params: PokemonTCG.IParameter = { q: 'name:Base' };
 
@@ -177,9 +181,51 @@ PokemonTCG.findSetsByQueries(params).then((sets: PokemonTCG.ISet[]) => {
 Returns all Pokémon sets available through recursive pagination.
 
 ```typescript
-import { PokemonTCG } from '@pokelib/pokemon-tcg-sdk-typescript';
+import { PokemonTCG } from '@d.richardcarl/pokemon-tcg-sdk-ts';
 
 PokemonTCG.getAllSets();
+```
+
+### Product Methods
+
+#### findProductByID()
+
+Returns a single Pokémon sealed product given an ID.
+
+```typescript
+import { PokemonTCG } from '@d.richardcarl/pokemon-tcg-sdk-ts';
+
+PokemonTCG.findProductByID('swsh12pt5-s1').then(
+  (product: PokemonTCG.IProduct) => {
+    console.log(product.name); // Crown Zenith Booster Pack
+  },
+);
+```
+
+#### findProductsByQueries()
+
+Returns an array of products filtered through a search query.
+
+```typescript
+import { PokemonTCG } from '@d.richardcarl/pokemon-tcg-sdk-ts';
+
+const params: PokemonTCG.IParameter = { q: 'name:"Crown Zenith Booster Pack"' };
+
+PokemonTCG.findProductsByQueries(params).then(
+  (products: PokemonTCG.IProduct[]) => {
+    console.log(products[0].name); // Crown Zenith Booster Pack
+  },
+);
+```
+
+#### getAllProducts()
+
+Returns all Pokémon sealed products available through recursive pagination.
+
+```typescript
+import { PokemonTCG } from '@d.richardcarl/pokemon-tcg-sdk-ts';
+
+PokemonTCG.getAllProducts();
 ```
 
 ## Contributing
@@ -199,6 +245,6 @@ Raring to code your heart out? Awesome! Here's how to get started:
 6. Run `npm run test` to run ESLint and Jest tests.
 7. (OPTIONAL) Test your changes in a project of yours:
    1. Create a link with `npm` or `yarn` (depending on what tool you installed this SDK with)
-   2. In your project that uses the SDK, install the linked package with `yarn/npm link @pokelib/pokemon-tcg-sdk-typescript`
+   2. In your project that uses the SDK, install the linked package with `yarn/npm link @d.richardcarl/pokemon-tcg-sdk-ts`
    3. Verify the SDK behaves as expected, and your changes took effect
 8. Submit a [pull request](https://github.com/pokelibrary/pokemon-tcg-sdk-typescript/compare)! 🎉
