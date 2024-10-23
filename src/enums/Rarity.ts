@@ -1,4 +1,5 @@
 export enum Rarity {
+  AceSpecRare = 'ACE SPEC Rare',
   AmazingRare = 'Amazing Rare',
   ClassicCollection = 'Classic Collection',
   Common = 'Common',
@@ -27,6 +28,8 @@ export enum Rarity {
   RareShiny = 'Rare Shiny',
   RareShinyGX = 'Rare Shiny GX',
   RareUltra = 'Rare Ultra',
+  ShinyRare = 'Shiny Rare',
+  ShinyUltraRare = 'Shiny Ultra Rare',
   SpecialIllustrationRare = 'Special Illustration Rare',
   TrainerGalleryRareHolo = 'Trainer Gallery Rare Holo',
   UltraRare = 'Ultra Rare',
