@@ -1,5 +1,5 @@
 {
-  "name": "@d.richardcarl/pokemon-tcg-sdk-ts",
+  "name": "@devdrc/pokemon-tcg-sdk-ts",
   "version": "2.2.2",
   "description": "Typescript SDK for the PokemonTCG API (https://pokemontcg.io)",
   "main": "dist/index.js",
@@ -80,5 +80,5 @@
   "directories": {
     "test": "test"
   },
-  "author": "d.richardcarl"
+  "author": "d.richardcarl <d.richardcarl@gmail.com>"
 }
